@@ -6,6 +6,8 @@ MAINTAINER Zuhui Liu penguin_tux@live.com
 ENV BASE_VERSION 2015-12-03
 ENV OPENSTACK_VERSION liberty
 
+RUN yum install -y deltarpm
+
 RUN yum install -y epel-release centos-release-openstack-liberty
 
 RUN yum update -y
