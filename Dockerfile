@@ -16,4 +16,6 @@ RUN yum install -y MySQL-python crudini mariadb supervisor
 
 RUN yum clean all
 
+RUN rm -rf /var/cache/yum/*
+
 CMD ['/bin/bash']
