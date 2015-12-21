@@ -18,4 +18,7 @@ RUN yum clean all
 
 RUN rm -rf /var/cache/yum/*
 
+RUN mv mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo.orig
+ADD CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo
+
 CMD ['/bin/bash']
