@@ -10,6 +10,9 @@ RUN yum install -y deltarpm
 
 RUN yum install -y epel-release centos-release-openstack-liberty
 
+RUN mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo.orig
+ADD CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo
+
 RUN yum update -y
 
 RUN yum install -y MySQL-python crudini mariadb supervisor
@@ -17,8 +20,5 @@ RUN yum install -y MySQL-python crudini mariadb supervisor
 RUN yum clean all
 
 RUN rm -rf /var/cache/yum/*
-
-RUN mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo.orig
-ADD CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo
 
 CMD ['/bin/bash']
