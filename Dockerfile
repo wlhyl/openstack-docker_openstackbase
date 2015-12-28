@@ -5,20 +5,17 @@ MAINTAINER Zuhui Liu penguin_tux@live.com
 
 ENV BASE_VERSION 2015-12-03
 ENV OPENSTACK_VERSION liberty
+ENV BUILD_VERSION 2015-12-28
 
-RUN yum install -y deltarpm
-
-RUN yum install -y epel-release centos-release-openstack-liberty
-
-RUN mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo.orig
 ADD CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo
 
-RUN yum update -y
+RUN yum install -y deltarpm && \
+         yum install -y epel-release && \
+         yum update -y && \
+         yum install -y MySQL-python crudini mariadb supervisor &&\
+         rm -rf /var/cache/yum/*
 
-RUN yum install -y MySQL-python crudini mariadb supervisor
-
-RUN yum clean all
-
-RUN rm -rf /var/cache/yum/*
+RUN rm -rf /etc/localtime && \
+         ln -s /usr/share/zoneinfo/Asia/Chongqing /etc/localtime
 
 CMD ['/bin/bash']
