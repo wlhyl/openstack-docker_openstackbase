@@ -7,7 +7,7 @@ ENV BASE_VERSION 2015-12-03
 ENV OPENSTACK_VERSION liberty
 ENV BUILD_VERSION 2016-01-07
 
-RUN yum install -y centos-release-openstack-liberty
+RUN yum install -y centos-release-openstack-liberty && rm -rf /var/cache/yum/*
 RUN mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo.orig
 ADD CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo
 
