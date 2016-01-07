@@ -5,7 +5,7 @@ MAINTAINER Zuhui Liu penguin_tux@live.com
 
 ENV BASE_VERSION 2015-12-03
 ENV OPENSTACK_VERSION liberty
-ENV BUILD_VERSION 2015-12-28
+ENV BUILD_VERSION 2016-01-07
 
 RUN yum install -y centos-release-openstack-liberty
 RUN mv /etc/yum.repos.d/CentOS-OpenStack-liberty.repo /etc/yum.repos.d/CentOS-OpenStack-liberty.repo.orig
